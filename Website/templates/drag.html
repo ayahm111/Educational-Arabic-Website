@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fill in the blanks</title>
+    <link rel="shortcut icon" type="image/png" href="/static/favicon.png"/>
+    <style>
+        .dropbox {
+            width: 300px; /* Increased width */
+            height: 30px;
+            padding: 10px;
+            border: 1px solid #292828;
+        }
+
+        h1 {
+            color: green;
+        }
+    </style>
+</head>
+
+<body style="background-color: rgb(255, 255, 255); padding: 0; margin: 0;">
+    <table style="width: 100%; height: 100%; border-spacing: 0px;">
+        <tr >
+            <th style="background-color: rgb(93, 202, 249); border: 0px;  width:40% ;"></th>
+            <th style="background-color: rgb(0, 179, 255);">
+                <h1  style="font-size: 50px ; color: white;">      المرحلة الثالثة </h1>
+            </th>
+            <th style="background-color: rgb(93, 202, 249); font-size: 30px ; width:40% ;"> <a href="welcome" style="color: white; width:40% ;">    إرجع     </a></th>
+        </tr>
+
+        <tr>
+            <th style="background-color: rgb(93, 202, 249); border: 0px;"></th>
+            <th >
+                <img src="/static/masjid.jpg" alt="Image" width="600" height="400">
+            </th>
+            <th  style="background-color: rgb(93, 202, 249); border: 0px;"></th>
+        </tr>
+
+        <tr style="background-color: rgb(138, 220, 254); border: 0px;">
+            <th colspan="3">
+                <h2 style="color: white; font-size: 30px;">املاء الفراغ</h2>
+            </th>
+        </tr>
+        <tr style="background-color: rgb(173, 228, 252); border: 0px; color: white;">
+            <th style="font-size: 25px;">
+                <p id="drag1" draggable="true" ondragstart="event.dataTransfer.setData('text/plain', 'أبوظبي')" style="color: white;">
+                    أ-أبوظبي
+                </p>
+                <p id="drag2" draggable="true" ondragstart="event.dataTransfer.setData('text/plain', 'دبي')" style="color: white;">
+                    ب- دبي
+                </p>
+                <p id="drag3" draggable="true" ondragstart="event.dataTransfer.setData('text/plain', 'عجمان')" style="color: white;">
+                    ج- عجمان
+                </p>
+            </th>
+            <th style="text-align: right;">
+                <form id="myForm1" action="correct">
+                    <input type="hidden" name="fill" id="fill">
+                    <div class="dropbox" ondrop="event.preventDefault(); 
+                            var fill = event.dataTransfer.getData('text/plain');
+                            document.getElementById('fill').value = fill;
+                            if (fill === 'دبي' || fill === 'عجمان') {
+                                document.getElementById('myForm1').action = 'wrong3';
+                            }
+                            document.getElementById('myForm1').submit();" 
+                            ondragover="event.preventDefault();"></div>
+                </form>
+            </th>
+            <th style="font-size: 30px; width: 50%;">
+                مسجد الشيخ زايد هو أكبر مسجد في 
+            </th>
+        </tr>
+        <tr></tr>
+    </table>
+</body>
+
+</html>
